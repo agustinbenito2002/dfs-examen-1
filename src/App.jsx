@@ -6,7 +6,11 @@ import Display from './components/Display'
 function App() {
   const [partido, setPartido] = useState({
     golesLocal: 0,
-    golesVisitante: 0
+    golesVisitante: 0,
+    faltalocal: 0,
+    faltavisitante: 0,
+    sacadolocal: 0,
+    sacadovisitante: 0
   })
 
   const onGol = (equipo) => {
@@ -18,10 +22,29 @@ function App() {
     }
   }
 
+const falta = (equipo) => {
+    if(equipo =='local'){
+    setPartido({ ...partido, faltalocal: partido.faltalocal + 1 })
+    }
+    else{
+      setPartido({ ...partido, faltavisitante: partido.faltavisitante + 1 })
+    }
+  }
+
+
+  const sacado = (equipo) => {
+    if(equipo =='local'){
+    setPartido({ ...partido, sacadolocal: partido.sacadolocal + 1 })
+    }
+    else{
+      setPartido({ ...partido, sacadovisitante: partido.sacadovisitante + 1 })
+    }
+  }
+
   return (
     <div className='container'>
       <h1>Partido</h1>
-      <Controles onGol={onGol} />
+      <Controles onGol={onGol} falta={falta} sacado={sacado} />
       <Display partido={partido} />
     </div>
   )
