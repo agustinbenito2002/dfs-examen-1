@@ -1,4 +1,4 @@
-const Controles = ({ onGol , falta , sacado }) => {
+const Controles = ({ onGol , falta , sacado , resetear}) => {
   return (
     <div className="controles">
       <div>
@@ -13,6 +13,7 @@ const Controles = ({ onGol , falta , sacado }) => {
         <button onClick={() => { falta('visitante')}}>🟨 Amarilla</button>
         <button onClick={() => {sacado('visitante')}}>🟥 Roja</button>
       </div>
+      <button onClick={resetear}>reiniciar</button>
     </div>
   )
 }

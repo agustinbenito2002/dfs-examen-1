@@ -41,10 +41,19 @@ const falta = (equipo) => {
     }
   }
 
+  const resetear = () =>{
+    setPartido({ ...partido, golesLocal: partido.golesLocal = 0 })
+setPartido({ ...partido, golesVisitante: partido.golesVisitante = 0 })
+setPartido({ ...partido, faltalocal: partido.faltalocal = 0 })
+setPartido({ ...partido, faltavisitante: partido.faltavisitante = 0 })
+setPartido({ ...partido, sacadolocal: partido.sacadolocal = 0 })
+   setPartido({ ...partido, sacadovisitante: partido.sacadovisitante = 0 })
+  }
+
   return (
     <div className='container'>
       <h1>Partido</h1>
-      <Controles onGol={onGol} falta={falta} sacado={sacado} />
+      <Controles onGol={onGol} falta={falta} sacado={sacado} resetear={resetear}/>
       <Display partido={partido} />
     </div>
   )

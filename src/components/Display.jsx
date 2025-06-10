@@ -25,6 +25,7 @@ const Display = ({ partido }) => {
             <td>{partido.sacadolocal}</td>
             <td>{partido.sacadovisitante}</td>
           </tr>
+          
         </tbody>
       </table>
     </div>
